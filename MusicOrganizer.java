@@ -10,6 +10,7 @@ public class MusicOrganizer
 {
     // An ArrayList for storing the file names of music files.
     private ArrayList<String> files;
+  
         
     /**
      * Create a MusicOrganizer
@@ -17,6 +18,7 @@ public class MusicOrganizer
     public MusicOrganizer()
     {
         files = new ArrayList<String>();
+    
     }
     
     /**
@@ -43,7 +45,8 @@ public class MusicOrganizer
      */
     public void listFile(int index)
     {
-        if(index >= 0 && index < files.size()) {
+        if(validIndex(index))
+        {
             String filename = files.get(index);
             System.out.println(filename);
         }
@@ -55,7 +58,8 @@ public class MusicOrganizer
      */
     public void removeFile(int index)
     {
-        if(index >= 0 && index < files.size()) {
+        if(validIndex(index)) 
+        {
             files.remove(index);
         }
     }
@@ -64,9 +68,20 @@ public class MusicOrganizer
      */
     public void checkIndex(int index)
     {
-        if(index < 0 || index > files.size()-1) 
+        if((index < 0 )|| (index > files.size()-1)) 
         {
            System.out.println("ERROR. El rango valido es: "+ 0 + "-" + (files.size()-1));
         }
     }
+    
+    public boolean validIndex(int index)
+    {
+        boolean valido = true;
+        if(index < 0 || index > files.size()-1)
+        {
+            valido = false;
+        }
+        return valido;
+    }
+        
 }
