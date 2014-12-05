@@ -64,9 +64,9 @@ public class MusicOrganizer
      */
     public void checkIndex(int index)
     {
-        if(index >= 0 && index > files.size()-1) 
+        if(index < 0 || index > files.size()-1) 
         {
-           System.out.println("ERROR. El rango valido es: "+ 0 + "-" + files.size());
+           System.out.println("ERROR. El rango valido es: "+ 0 + "-" + (files.size()-1));
         }
     }
 }
